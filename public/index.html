@@ -1,0 +1,523 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=1280">
+	<title></title>
+
+	<!-- Global stylesheets starts -->
+	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+	<link rel="stylesheet" href="assets/css/style.css">
+	<link rel="stylesheet" href="assets/css/responsive.css">
+	<link rel="stylesheet" href="assets/plugins/font-awesome/css/all.min.css">
+	<!-- Global stylesheets close -->
+
+	<!-- Video Player Css -->
+	<link href="https://vjs.zencdn.net/7.10.2/video-js.css" rel="stylesheet" />
+
+	<link rel="stylesheet" type="text/css" href="css/main.css" />
+	<link rel="stylesheet" type="text/css" href="css/keyboard.css" />
+	<link rel="stylesheet" type="text/css" href="assets/css/nbplayer.css" />
+	<link rel="stylesheet" type="text/css" href="assets/css/epg.css" />
+	<link rel="stylesheet" type="text/css" href="assets/css/dropdown.css" />
+	<link rel="stylesheet" type="text/css" href="assets/css/windows.css" />
+
+	<script src="js/core/jquery.js"></script>
+	<script src="js/core/moment2.js"></script>
+	<script src="js/core/jasmine.js"></script>
+	<script src="js/core/json2.js"></script>
+	<script src="js/core/md5.js"></script>
+	<script src="js/core/mustache.js"></script>
+	<script src="js/core/helpers.js"></script>
+	<script src="js/core/main.js"></script>
+	<script src="js/core/dropdown.js"></script>
+	<script src="assets/js/bootstrap.min.js"></script>
+
+	<script src="js/core/module/developer.js"></script>
+	<script src="js/core/module/events.js"></script>
+	<script src="js/core/module/device.js"></script>
+	<script src="js/core/module/storage.js"></script>
+	<script src="js/core/module/control.js"></script>
+	<!-- <script src="js/core/module/deferrable.js"></script> -->
+	<script src="js/core/module/focus.js"></script>
+	<script src="js/core/module/mouse.js"></script>
+	<!-- <script src="js/core/module/promise.js"></script> -->
+	<script src="js/core/module/router.js"></script>
+	<script src="js/core/module/input.js"></script>
+	<script src="js/core/module/keyboard.js"></script>
+	<script src="js/core/module/scene.js"></script>
+	<script src="js/core/module/snippet.js"></script>
+	<script src="js/core/module/model.js"></script>
+	<script src="js/core/module/collection.js"></script>
+	<script src="js/core/module/ajax.js"></script>
+	<script src="js/core/module/i18n.js"></script>
+	<script src="js/core/module/player.js"></script>
+	<script src="js/core/module/player_audio.js"></script>
+	<script src="js/core/module/playready.js"></script>
+	<script src="js/core/module/subtitles.js"></script>
+	<script src="js/core/module/template.js"></script>
+	<script src="js/core/module/analytics.js"></script>
+
+	<!-- Languages -->
+	<script src="js/i18n/en.js"></script>
+	<script src="js/i18n/pt.js"></script>
+	<script src="js/i18n/es.js"></script>
+	<script src="js/i18n/hu.js"></script>
+	<script src="js/i18n/sk.js"></script>
+
+	<script src="js/module/api.js"></script>
+	<script src="js/module/user.js"></script>
+	<script src="js/lib/bluebird.min.js"></script>
+	<script src="js/lib/sha256.js"></script>
+	<script src="js/core/utils.js"></script>
+
+	<script src="js/scene/offline.js"></script>
+	<script src="js/scene/splash.js"></script>
+	<script src="js/scene/login.js"></script>
+	<script src="js/scene/licenses.js"></script>
+	<script src="js/scene/activation.js"></script>
+	<script src="js/scene/home.js"></script>
+
+	<script src="js/app.js"></script>
+	<script src="config.brands.js"></script>
+	<script src="config.js"></script>
+
+	<script src="js/module/cv.js"></script>
+	<script src="js/module/Repo.js"></script>
+	<script src="js/module/user.js"></script>
+	<script src="js/module/app-data.js"></script>
+	<script src="js/module/epg.js"></script>
+	<script src="js/module/vod.js"></script>
+	<script src="js/module/VODDetail.js"></script>
+	<script src="js/module/NBAlert.js"></script>
+
+	<script src="https://vjs.zencdn.net/7.17.0/video.min.js"></script>
+	<script src="js/core/videojs-hlsjs-plugin.js"></script>
+	<script src="js/module/nbplayer.js"></script>
+	<!-- <script src="js/core/network.js"></script> -->
+	<script src="js/core/module/teclas.js"></script>
+
+	<style>
+		@charset "UTF-8";
+	</style>
+	<link rel="shortcut icon" href="#">
+</head>
+
+<body>
+	<div id="viewport">
+		<!-- <div id="LOG" style="display: block; background-color: black; color: #FFF; font-size: 20px;"></div> -->
+		<div id="scene-splash" class="scene" style="display: none">
+		</div>
+		<div id="scene-login" class="scene sec-login" style="display: none">
+			<div class="login-div">
+				<div class="modal-dialog modallog" role="document">
+					<div class="modal-content modal-login generallogin">
+						<div class="row row-log">
+							<div class="text-center center center-img">
+								<img src="" alt="" class="img-thumbnail img-logo img-lis">
+							</div>
+						</div>
+						<div class="titule">
+							<h3 class="modal-title title" id="loginWelcomeLabel"></h3>
+						</div>
+						<div class="modal-body">
+							<div class="form-group userId-input-parent divinput">
+								<input type="text" class="form-control-lg login-input txtLoginUserId focusable inputuser"
+									id="txtLoginUserId" placeholder="" value="">
+							</div>
+							<div class="form-group password-input-parent divinput">
+								<input type="password" class="form-control-lg login-input txtLoginPassword focusable inputuser"
+									id="txtLoginPassword" placeholder="" value="">
+							</div>
+						</div>
+						<div class="">
+							<button class="btn-default btn-lg btn-block focusable" id="btnLoginSubmit"></button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="scene-licenses" class=" sec-licenses scene " style="display: none">
+			<div class="div-licenses div-lis">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content modal-login modal-lis">
+						<div class="row row-log">
+							<div class="text-center center center-img">
+								<img src="" alt="" class="img-thumbnail img-logo img-lis">
+							</div>
+						</div>
+						<div class="">
+							<h4 class="modal-title text-left" id="settingsLicenseInstructionsLabel"></h4>
+						</div>
+						<div class="modal-body">
+							<div class="list-group group-lis" id="divLicenses"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="scene-activation" class="scene" style="display: none">
+			<div class="div-licenses">
+				<div class="row">
+					<div class="col-sm-5 text-center center"></div>
+					<div class="col-sm-2 text-center center">
+						<img src="" alt="" class="img-thumbnail img-logo">
+					</div>
+					<div class="col-sm-5 text-center center"></div>
+				</div>
+				<div class="modal-dialog" role="document">
+					<div class="modal-content modal-login">
+						<div class="">
+							<h4 class="modal-title text-left" id="settingsEnterPINMessageLabel"></h4>
+							<b id="labelLicenseToActivate"></b>
+						</div>
+						<div class="modal-body">
+							<div class="form-group" id="containerLicensePin">
+								<input type="text" class="form-control-lg login-input focusable" id="txtLicensePin"
+									placeholder="PIN" value="">
+							</div>
+							<div>
+								<button class="btn-default btn-lg btn-block focusable" id="btnActivate"></button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="scene-home" class="scene" style="display: none">
+			<div class="container-fluid">
+				<div class="row header-row">
+					<div class="row">
+						<div class="col-sm-2">
+							<img src="" alt="" class="img-thumbnail img-logo" id="topLogoImage">
+						</div>
+						<div class="col-sm-8"></div>
+						<div class="col-sm-2">
+							<div class="nb-time" id="nbTime"></div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-sm-6 header-row-info">
+							<div id="channelInfoDiv" class="channel-info hidden" style="height: 100%; font-size: 1.2em;">
+								<div class="channel-lcn-name">
+									<span class="channel-name" id="channelNameLabel"></span>
+									<h2><span class="label label-default" id="channelLcnLabel"></span></h2>
+								</div>
+								<p class="info-services" id="epgAtThisTimeLabel"></p>
+								<p class="info-services font-bold" id="nowEventLabel"></p>
+								<p class="info-services" id="epgNextLabel"></p>
+								<p class="info-services font-bold" id="nextEventLabel"></p>
+
+								<p class="info-epg font-bold" id="epgEventTitle"></p>
+								<p class="info-epg" id="epgEventTime"></p>
+								<p class="info-epg" id="epgEventDescription"></p>
+							</div>
+							<div id="menuTitle" class="menu-title hidden">
+								<div id="menuSelectedLabel"></div>
+							</div>
+						</div>
+						<div class="col-sm-2 col-right-logo">
+							<img src="" alt="" class="img-right-logo img-logo hide" id="rightLogoImage">
+						</div>
+						<div class="col-sm-4">
+							<div id="divVideoContainer" class="video-container focusable pull-right">
+								<video id="mainVideo" class="video-js vjs-default-skin" controls preload="auto" data-setup='{"fluid": true}'></video>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="clearfix"></div>
+				<div class="row content-row" id="channelsGrid">
+					<!-- <div class="publicidad-top"></div> -->
+					<div class="row hidden" id="tvChannelsRow">
+					</div>
+					<div class="row hidden" id="favoritesRow">
+						<div class="col-sm-12 canales">
+							<div class="channels-div">
+								<h4 class="heading"></h4>
+								<div class="horizontal-slide">
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- <div id="channelCategoryGroup" class="row hidden"></div> -->
+					<div class="row hidden" id="catchupsRow"></div>
+					<div class="row hidden" id="catchupRecordingRow"></div>
+					<div class="row hidden" id="vodRow"></div>
+					<div class="row hidden" id="menuRow" style="margin-bottom: 2em;">
+						<div class="col-sm-12">
+							<div class="channels-div">
+								<h4 class="heading" id="menuTitleLabel"></h4>
+								<div class="horizontal-slide menu-grid">
+									<div class="channel-video other-option focusable" data-other-id="0">
+										<span class="fa fa-redo"></span>
+										<span id="menuUpdateDataLabel"></span>
+									</div>
+									<div class="channel-video other-option focusable" data-other-id="1">
+										<span class="fa fa-bars"></span>
+										<span id="menuEPGLabel"></span>
+									</div>
+									<div class="channel-video other-option focusable" data-other-id="2">
+										<span class="fa fa-info-circle"></span>
+										<span id="menuAboutLabel"></span>
+									</div>
+									<div class="channel-video other-option focusable" data-other-id="3">
+										<span class="fa fa-sign-out-alt"></span>
+										<span id="menuLogoutLabel"></span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-12 channels-div epg-container" id="epgContainer" style="visibility: hidden;">
+					<div id="epgDate" class="epg-container-item">
+						<div class="row">
+              <div class="epg-cell epg-hour-header epg-date-indicator">
+              </div>
+            </div>
+					</div>
+					<div id="epgHours" class="epg-container-item epg-hours"></div>
+					<div class="epg-break"></div>
+					<div id="epgChannels" class="epg-container-item epg-channels"></div>
+					<div id="epgGrid" class="epg-container-item epg-grid"></div>
+					<div class="epg-message"></div>
+					<div id='epgFocusPosition'></div>
+				</div>
+				<div class="col-sm-12 channels-div vod-container" id="vodContainer" style="visibility: hidden;">
+					<div id="vodList"></div>
+				</div>
+				<div id="vodDetailContainer" style="width: 100%; height: 100%; position: absolute; top: 0; left: 0; visibility: hidden; z-index: 1000; padding: 1.5em;">
+					<div class="vod-detail-container">
+						<div class="vod-container-top">
+							<div class="vod-top-left">
+								<div>
+									<img src="" alt="" class="vod-picture">
+								</div>
+								<div class="vod-top-left-play focusable"><i class="fa fa-play"></i></div>
+							</div>
+							<div class="vod-top-right">
+								<div class="vod-top-right-title"></div>
+								<div class="vod-top-right-category"></div>
+								<div class="vod-top-right-subtitle">
+									<div class="vod-top-time font-bold"></div>
+									<div class="vod-top-rating" style="display: flex!important;"></div>
+								</div>
+								<div class="vod-top-right-description"></div>
+							</div>
+						</div>
+						<div class="vod-container-bottom">
+							Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, consequatur. Quibusdam rerum blanditiis deserunt sint esse. Laboriosam minus optio harum facere, exercitationem molestias eaque recusandae suscipit laudantium illo atque necessitatibus?
+						</div>
+					</div>
+
+					<div class="serie-detail-container" style="height: 100%;width: 100%; color: #FFF; font-size: 1.2em;">
+						<div style="display: flex;flex-direction: row; height: 100%;">
+							<div style="width: 55%;">
+								<div style="height: 50%;text-align: center;position: relative;">
+									<div style="height: 100%;text-align: center;">
+										<img src="" alt="" style="height: 100%; max-width: 90%;" class="vod-serie-picture">
+									</div>
+								</div>
+								<div style="height: 50%;">
+									<div class="vod-top-right-title"></div>
+									<div class="vod-top-right-category"></div>
+									<div class="vod-top-right-subtitle">
+										<div class="vod-top-time font-bold"></div>
+										<div class="vod-top-rating" style="display: flex!important;"></div>
+									</div>
+									<div class="vod-top-right-description"></div>
+								</div>
+							</div>
+							<div style="flex: 1; width: 45%; overflow: hidden; display: flex; flex-direction: column;">
+								<h1 id="episodesLabel" style="text-align: center; margin: 0.4em;"></h1>
+								<div>
+									<div class="nb-dropdown"></div>
+								</div>
+								<div class="serie-episodes">
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+        <div id="scene-offline" class="scene" style="display: none; font-size: 1.3em">
+            <div class="div-licenses">
+                <div class="row">
+                    <div class="col-sm-5 text-center center"></div>
+                    <div class="col-sm-2 text-center center">
+                        <img src="" alt="" class="img-thumbnail img-logo">
+                    </div>
+                </div>
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content modal-login">
+                        <div class="">
+                            <div class="modal-title text-left" id="offlineTitle"></div>
+                        </div>
+                        <div class="modal-body">
+                            <div class="text-left" id="offlineMessage"></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <button class="btn-default btn-lg btn-block focusable" id="offlineRetryButton">Reintentar</button>
+                            </div>
+                            <div class="col-md-6">
+                                <button class="btn-default btn-lg btn-block focusable" id="offlineExitButton">Salir</button>
+                            </div>
+						</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+	</div>
+
+	<div id="nbVjsControlsTemplate" style="display: none">
+		<div class="nb-vjs-vod-controls">
+			<div class="nb-vjs-vod-controls-top-background"></div>
+			<div class="nb-vjs-vod-controls-bottom-background"></div>
+			<table class="nb-vjs-vod-table">
+				<tr>
+					<td style="position: relative; width: 6em;">
+						<a href="javascript:;" class="nb-vjs-button nb-vjs-back-button focusable">
+							<svg data-type="play" style="background: #FFF; border-radius: 50%; box-shadow: inset 0 0 10px 10px #1D1E22;" xmlns="http://www.w3.org/2000/svg" fill="#1D1E22" width="3em" height="3em" viewBox="0 0 16 16">
+								<path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z"/>
+							</svg>
+						</a>
+					</td>
+					<td style="position: relative; width: 5em;">
+						<a href="javascript:;" class="nb-vjs-button nb-vjs-epg-button focusable">
+							<svg style="background: #FFF; border-radius: 50%; box-shadow: inset 0 0 10px 10px #1D1E22;"
+								xmlns="http://www.w3.org/2000/svg"  width="3em" height="3em" fill="#1D1E22" xmlns:xlink="http://www.w3.org/1999/xlink"
+								zoomAndPan="magnify" viewBox="0 0 375 374.9999" preserveAspectRatio="xMidYMid meet" version="1.0">
+								<defs>
+									<path d="M 7.09375 7.09375 L 367.84375 7.09375 L 367.84375 367.84375 L 7.09375 367.84375 Z M 7.09375 7.09375 " fill="#000000"></path>
+								</defs>
+								<g>
+									<path d="M 187.46875 7.09375 C 87.851562 7.09375 7.09375 87.851562 7.09375 187.46875 C 7.09375 287.085938 87.851562 367.84375 187.46875 367.84375 C 287.085938 367.84375 367.84375 287.085938 367.84375 187.46875 C 367.84375 87.851562 287.085938 7.09375 187.46875 7.09375 "
+										fill-opacity="1" fill-rule="nonzero"></path>
+								</g>
+								<g transform="translate(85, 75)"> <svg xmlns="http://www.w3.org/2000/svg" width="240" height="240"
+										fill="currentColor" class="bi bi-list-task" viewBox="0 0 16 16" id="IconChangeColor">
+										<path fill-rule="evenodd"
+											d="M2 2.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5V3a.5.5 0 0 0-.5-.5H2zM3 3H2v1h1V3z"
+											id="mainIconPathAttribute" stroke-width="1" stroke="#ffffff"></path>
+										<path
+											d="M5 3.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM5.5 7a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1h-9zm0 4a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1h-9z"
+											id="mainIconPathAttribute" stroke="#ffffff"></path>
+										<path fill-rule="evenodd"
+											d="M1.5 7a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H2a.5.5 0 0 1-.5-.5V7zM2 7h1v1H2V7zm0 3.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5H2zm1 .5H2v1h1v-1z"
+											id="mainIconPathAttribute" stroke="#ffffff"></path>
+									</svg>
+								</g>
+							</svg>
+							<span class="nb-vjs-epg-button-tooltip nb-vjs-tooltip"></span>
+						</a>
+					</td>
+					<td style="width: 5em;">
+						<a href="javascript:;" class="nb-vjs-button nb-vjs-tracks-button focusable">
+							<svg data-type="play" style="background: #FFF; border-radius: 50%; box-shadow: inset 0 0 10px 10px #1D1E22;" xmlns="http://www.w3.org/2000/svg" fill="#1D1E22" width="3em" height="3em" viewBox="0 0 16 16">
+								<path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zM3.5 5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1 0-1zM5 8.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm2 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5z"/>
+							</svg>
+						</a>
+						<div class="nb-vjs-tracks-div" style="display: none;">
+							<table class="nb-vjs-tracks-table">
+								<thead>
+									<tr>
+										<th class="nb-vjs-tracks-audio-title nb-vjs-track-audio"></th>
+										<th class="nb-vjs-tracks-subtitles-title nb-vjs-track-subtitle"></th>
+									</tr>
+								</thead>
+								<tbody></tbody>
+							</table>
+						</div>
+					</td>
+					<td colspan="4" ></td>
+					<!-- <td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td> -->
+					<td style="width: 5em;">
+						<a href="javascript:;" class="nb-vjs-button nb-vjs-next-button focusable">
+							<svg data-type="play" style="background: #FFF; border-radius: 50%; box-shadow: inset 0 0 10px 10px #1D1E22;" xmlns="http://www.w3.org/2000/svg" fill="#1D1E22" width="3em" height="3em" viewBox="0 0 16 16">
+								<path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM6.79 5.093A.5.5 0 0 0 6 5.5v5a.5.5 0 0 0 .79.407L9.5 8.972V10.5a.5.5 0 0 0 1 0v-5a.5.5 0 0 0-1 0v1.528L6.79 5.093z"/>
+							</svg>
+							<span class="nb-vjs-next-button-tooltip nb-vjs-tooltip"></span>
+						</a>
+					</td>
+					<td class="nb-vjs-vod-time" style="width: 8em;">
+						<span></span>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="9"></td>
+				</tr>
+				<tr>
+					<td>
+						<a href="javascript:;" class="nb-vjs-button nb-vjs-play-pause-button focusable">
+							<svg data-type="play" style="background: #FFF; border-radius: 50%; box-shadow: inset 0 0 10px 10px #1D1E22;" xmlns="http://www.w3.org/2000/svg" fill="#1D1E22" width="4.5em" height="4.5em" viewBox="0 0 16 16">
+								<path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM6.79 5.093A.5.5 0 0 0 6 5.5v5a.5.5 0 0 0 .79.407l3.5-2.5a.5.5 0 0 0 0-.814l-3.5-2.5z" />
+							</svg>
+							<svg data-type="pause" style="background: #FFF; border-radius: 50%; box-shadow: inset 0 0 10px 10px #1D1E22; display:none" xmlns="http://www.w3.org/2000/svg" fill="#1D1E22" width="4.5em" height="4.5em" viewBox="0 0 16 16">
+								<path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM6.25 5C5.56 5 5 5.56 5 6.25v3.5a1.25 1.25 0 1 0 2.5 0v-3.5C7.5 5.56 6.94 5 6.25 5zm3.5 0c-.69 0-1.25.56-1.25 1.25v3.5a1.25 1.25 0 1 0 2.5 0v-3.5C11 5.56 10.44 5 9.75 5z"/>
+							</svg>
+						</a>
+					</td>
+					<td>
+						<a href="javascript:;" class="end-button focusable">
+							<svg data-type="start" style="background: #FFF; border-radius: 50%; box-shadow: inset 0 0 10px 10px #1D1E22;"
+								xmlns="http://www.w3.org/2000/svg" width="3em" height="3em" fill="#1D1E22" class="bi bi-skip-start-circle-fill"
+								viewBox="0 0 16 16">
+								<path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM9.71 5.093 7 7.028V5.5a.5.5 0 0 0-1 0v5a.5.5 0 0 0 1 0V8.972l2.71 1.935a.5.5 0 0 0 .79-.407v-5a.5.5 0 0 0-.79-.407z" />
+							</svg>
+							<span class="nb-vjs-end-button-tooltip nb-vjs-tooltip"></span>
+						</a>
+					</td>
+					<td>
+						<a href="javascript:;" class="start-button focusable">
+							<svg data-type="end" style="background: #FFF; border-radius: 50%; box-shadow: inset 0 0 10px 10px #1D1E22;"
+								xmlns="http://www.w3.org/2000/svg" width="3em" height="3em" fill="#1D1E22" class="bi bi-skip-start-circle-fill"
+								viewBox="0 0 16 16">
+								<path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM6.79 5.093A.5.5 0 0 0 6 5.5v5a.5.5 0 0 0 .79.407L9.5 8.972V10.5a.5.5 0 0 0 1 0v-5a.5.5 0 0 0-1 0v1.528L6.79 5.093z"/>
+							</svg>
+							<span class="nb-vjs-start-button-tooltip nb-vjs-tooltip"></span>
+						</a>
+					</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td class="nb-vjs-vod-current-time"></td>
+					<td colspan="7" class="nb-vjs-vod-seek">
+						<div class='nb-seekbar focusable'>
+							<div><div></div></div>
+						</div>
+					</td>
+					<td class="nb-vjs-vod-duration"></td>
+				</tr>
+				<tr class="nb-vjs-epg-data-tr">
+					<td colspan="2">
+						<div class="vjs-control vjs-nb-item-image" class='radius-5'><img src='' class='radius-5' /></div>
+					</td>
+					<td colspan="7">
+						<div class="nb-vjs-epg-data">
+							<div class="nb-vjs-vod-title"></div>
+							<div class="nb-vjs-epg-now"></div>
+							<div class="nb-vjs-epg-now-time"></div>
+							<div class="nb-vjs-separator"></div>
+							<div class="nb-vjs-epg-next"></div>
+						</td>
+					</div>
+				</tr>
+			</table>
+		</div>
+	</div>
+
+</body>
+
+</html>
